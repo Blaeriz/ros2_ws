@@ -16,7 +16,11 @@ ament_target_dependencies(serv rclcpp)
 add_executable(cli src/cli.cpp)
 ament_target_dependencies(cli rclcpp std_msgs)
 
+add_executable(pub src/pub.cpp)
+ament_target_dependencies(pub rclcpp std_msgs)
+
 install(TARGETS
+  pub
   cli
   serv
   DESTINATION lib/${PROJECT_NAME})
