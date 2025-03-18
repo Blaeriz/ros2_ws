@@ -15,7 +15,6 @@ int main(int argc, char * argv[])
   int count = 0;
 
   while (rclcpp::ok()) {
-    // Create and populate the message
     auto message = std_msgs::msg::String();
     message.data = "Hello, ROS 2 Jazzy! " + std::to_string(count++);
 
@@ -23,10 +22,10 @@ int main(int argc, char * argv[])
     RCLCPP_INFO(node->get_logger(), "Publishing: '%s'", message.data.c_str());
     publisher->publish(message);
 
-    rclcpp::spin_some(node);  // Process callbacks
-    loop_rate.sleep();        // Sleep to maintain rate
+    rclcpp::spin_some(node); 
+    loop_rate.sleep();       
   }
 
-  rclcpp::shutdown();  // Clean up
+  rclcpp::shutdown();  
   return 0;
 }
